@@ -58,6 +58,7 @@ response: {}
 _This :messageId is new! This effectively means that instead of just doing `backendurl.com/message`, instead the url will hold some data. In this case, its `backendurl.com/comments/:messageId`, which would look something like `backendurl.com/comments/?389E-D381-CKS8`_
 
 **GET | (get a list of all comments under this message ID)**
+_The frontend sends nothing, the backend responds with an array of all the comments (sorted by time)._
 
 ```lua
 request: {}
@@ -65,6 +66,7 @@ response: { comments: [Comment, Comment ...] }
 ```
 
 **POST | (create comment under this message id)**
+_The frontend sends the name and content, the server creates the comment with all other fields and only responds with a status code (201 Created, 400 Bad Request, 500 Internal Server Error)_
 
 ```lua
 request: { posterName: <string>, content: <string> }
